@@ -1,0 +1,62 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "event_cutoff_date": "2024-07-15",
+  "n_tickers_attempted": 13,
+  "n_tickers_built": 13,
+  "n_events_total": 259,
+  "n_post_cutoff": 259,
+  "release_times_used": {
+    "NFP_TCH_Index": "08:30:00",
+    "CPI_XYOY_Index": "08:30:00",
+    "CPI_CHNG_Index": "08:30:00",
+    "USURTOT_Index": "08:30:00",
+    "AHE_YOY_Index": "08:30:00",
+    "RSTAMOM_Index": "08:30:00",
+    "INJCJC_Index": "08:30:00",
+    "GDP_CQOQ_Index": "08:30:00",
+    "DGNOCHNG_Index": "08:30:00",
+    "NAPMPMI_Index": "10:00:00",
+    "NAPMNMI_Index": "10:00:00",
+    "CONSSENT_Index": "10:00:00",
+    "CONCCONF_Index": "10:00:00"
+  },
+  "instruments_count": 46,
+  "states_count": 8,
+  "windows_computed": [
+    "3m",
+    "6m",
+    "12m",
+    "full"
+  ],
+  "drift_tag_counts": {
+    "STABLE": 31977,
+    "FADING": 3557,
+    "REVERSING": 2246,
+    "GROWING": 1602
+  },
+  "data_source_counts_by_type": {
+    "fly": {
+      "synthesized": 1160,
+      "actual_contract": 648,
+      "missing": 264
+    },
+    "outright": {
+      "actual_contract": 5698
+    },
+    "pack": {
+      "synthesized": 1295
+    },
+    "pack_fly": {
+      "synthesized": 777
+    },
+    "spread": {
+      "actual_contract": 1209,
+      "synthesized": 599,
+      "missing": 264
+    }
+  },
+  "atr_lookback_hours": 20,
+  "surprise_size_threshold_z": 1.0,
+  "atr_floor_price": 0.005
+}

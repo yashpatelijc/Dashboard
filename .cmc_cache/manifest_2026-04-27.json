@@ -1,0 +1,647 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "history_start": "2021-04-27",
+  "history_years": 5,
+  "n_contracts_in_chain": 58,
+  "n_rolls_historical": 31,
+  "outright_node_ids": [
+    "M0",
+    "M1",
+    "M2",
+    "M3",
+    "M4",
+    "M5",
+    "M6",
+    "M7",
+    "M8",
+    "M9",
+    "M10",
+    "M11",
+    "M12",
+    "M13",
+    "M14",
+    "M15",
+    "M16",
+    "M17",
+    "M18",
+    "M19",
+    "M20",
+    "M21",
+    "M22",
+    "M23",
+    "M24",
+    "M25",
+    "M26",
+    "M27",
+    "M28",
+    "M29",
+    "M30",
+    "M31",
+    "M32",
+    "M33",
+    "M34",
+    "M35",
+    "M36",
+    "M37",
+    "M38",
+    "M39",
+    "M40",
+    "M41",
+    "M42",
+    "M43",
+    "M44",
+    "M45",
+    "M46",
+    "M47",
+    "M48",
+    "M49",
+    "M50",
+    "M51",
+    "M52",
+    "M53",
+    "M54",
+    "M55",
+    "M56",
+    "M57",
+    "M58",
+    "M59",
+    "M60"
+  ],
+  "spread_node_ids": [
+    "M0_M3",
+    "M3_M6",
+    "M6_M9",
+    "M9_M12",
+    "M0_M6",
+    "M0_M12",
+    "M6_M12",
+    "M12_M24"
+  ],
+  "fly_node_ids": [
+    "M0_M3_M6",
+    "M3_M6_M9",
+    "M6_M9_M12",
+    "M0_M6_M12"
+  ],
+  "outright_node_coverage": {
+    "M0": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M1": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M2": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M3": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M4": {
+      "rows": 1305,
+      "with_data": 1256
+    },
+    "M5": {
+      "rows": 1305,
+      "with_data": 1266
+    },
+    "M6": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M7": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M8": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M9": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M10": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M11": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M12": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M13": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M14": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M15": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M16": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M17": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M18": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M19": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M20": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M21": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M22": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M23": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M24": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M25": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M26": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M27": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M28": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M29": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M30": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M31": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M32": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M33": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M34": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M35": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M36": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M37": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M38": {
+      "rows": 1305,
+      "with_data": 1267
+    },
+    "M39": {
+      "rows": 1305,
+      "with_data": 1230
+    },
+    "M40": {
+      "rows": 1305,
+      "with_data": 1211
+    },
+    "M41": {
+      "rows": 1305,
+      "with_data": 1192
+    },
+    "M42": {
+      "rows": 1305,
+      "with_data": 1188
+    },
+    "M43": {
+      "rows": 1305,
+      "with_data": 1188
+    },
+    "M44": {
+      "rows": 1305,
+      "with_data": 1187
+    },
+    "M45": {
+      "rows": 1305,
+      "with_data": 1185
+    },
+    "M46": {
+      "rows": 1305,
+      "with_data": 1184
+    },
+    "M47": {
+      "rows": 1305,
+      "with_data": 1179
+    },
+    "M48": {
+      "rows": 1305,
+      "with_data": 1178
+    },
+    "M49": {
+      "rows": 1305,
+      "with_data": 1178
+    },
+    "M50": {
+      "rows": 1305,
+      "with_data": 1172
+    },
+    "M51": {
+      "rows": 1305,
+      "with_data": 1159
+    },
+    "M52": {
+      "rows": 1305,
+      "with_data": 1142
+    },
+    "M53": {
+      "rows": 1305,
+      "with_data": 1125
+    },
+    "M54": {
+      "rows": 1305,
+      "with_data": 1120
+    },
+    "M55": {
+      "rows": 1305,
+      "with_data": 1116
+    },
+    "M56": {
+      "rows": 1305,
+      "with_data": 1110
+    },
+    "M57": {
+      "rows": 1305,
+      "with_data": 1110
+    },
+    "M58": {
+      "rows": 1305,
+      "with_data": 1110
+    },
+    "M59": {
+      "rows": 1305,
+      "with_data": 1110
+    },
+    "M60": {
+      "rows": 1305,
+      "with_data": 1105
+    }
+  },
+  "spread_node_coverage": {
+    "M0_M3": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M3_M6": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M6_M9": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M9_M12": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M0_M6": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M0_M12": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M6_M12": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M12_M24": {
+      "rows": 1305,
+      "with_data": 1270
+    }
+  },
+  "fly_node_coverage": {
+    "M0_M3_M6": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M3_M6_M9": {
+      "rows": 1305,
+      "with_data": 1249
+    },
+    "M6_M9_M12": {
+      "rows": 1305,
+      "with_data": 1270
+    },
+    "M0_M6_M12": {
+      "rows": 1305,
+      "with_data": 1249
+    }
+  },
+  "rolls": [
+    {
+      "roll_date": "2018-07-31",
+      "old_sym": "SRAM18",
+      "new_sym": "SRAU18",
+      "gap": -0.21250000000000568,
+      "gap_method": "calendar (volume guard not satisfied; capped at LTD)",
+      "ltd_canonical_old": "2018-09-18"
+    },
+    {
+      "roll_date": "2018-09-17",
+      "old_sym": "SRAU18",
+      "new_sym": "SRAZ18",
+      "gap": -0.19999999999998863,
+      "gap_method": "volume_deferred (fallback to nearest common bar)",
+      "ltd_canonical_old": "2018-12-18"
+    },
+    {
+      "roll_date": "2019-01-25",
+      "old_sym": "SRAZ18",
+      "new_sym": "SRAH19",
+      "gap": 0.007499999999993179,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2019-03-19"
+    },
+    {
+      "roll_date": "2019-04-30",
+      "old_sym": "SRAH19",
+      "new_sym": "SRAM19",
+      "gap": 0.06749999999999545,
+      "gap_method": "calendar (volume guard not satisfied; capped at LTD)",
+      "ltd_canonical_old": "2019-06-18"
+    },
+    {
+      "roll_date": "2019-07-31",
+      "old_sym": "SRAM19",
+      "new_sym": "SRAU19",
+      "gap": 0.2950000000000017,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2019-09-17"
+    },
+    {
+      "roll_date": "2019-10-31",
+      "old_sym": "SRAU19",
+      "new_sym": "SRAZ19",
+      "gap": 0.2325000000000017,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2019-12-17"
+    },
+    {
+      "roll_date": "2020-01-31",
+      "old_sym": "SRAZ19",
+      "new_sym": "SRAH20",
+      "gap": 0.07500000000000284,
+      "gap_method": "calendar (volume guard not satisfied; capped at LTD)",
+      "ltd_canonical_old": "2020-03-17"
+    },
+    {
+      "roll_date": "2020-04-30",
+      "old_sym": "SRAH20",
+      "new_sym": "SRAM20",
+      "gap": -0.00750000000000739,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2020-06-16"
+    },
+    {
+      "roll_date": "2020-07-31",
+      "old_sym": "SRAM20",
+      "new_sym": "SRAU20",
+      "gap": 0.02750000000000341,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2020-09-15"
+    },
+    {
+      "roll_date": "2020-10-30",
+      "old_sym": "SRAU20",
+      "new_sym": "SRAZ20",
+      "gap": 0.007499999999993179,
+      "gap_method": "calendar (volume guard not satisfied; capped at LTD)",
+      "ltd_canonical_old": "2020-12-15"
+    },
+    {
+      "roll_date": "2021-01-29",
+      "old_sym": "SRAZ20",
+      "new_sym": "SRAH21",
+      "gap": 0.022500000000007958,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2021-03-16"
+    },
+    {
+      "roll_date": "2021-06-07",
+      "old_sym": "SRAH21",
+      "new_sym": "SRAM21",
+      "gap": -0.01999999999999602,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2021-06-15"
+    },
+    {
+      "roll_date": "2021-09-07",
+      "old_sym": "SRAM21",
+      "new_sym": "SRAU21",
+      "gap": -0.005000000000009663,
+      "gap_method": "volume_deferred (fallback to nearest common bar)",
+      "ltd_canonical_old": "2021-09-14"
+    },
+    {
+      "roll_date": "2021-12-07",
+      "old_sym": "SRAU21",
+      "new_sym": "SRAZ21",
+      "gap": -0.012500000000002842,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2021-12-14"
+    },
+    {
+      "roll_date": "2022-03-08",
+      "old_sym": "SRAZ21",
+      "new_sym": "SRAH22",
+      "gap": -0.40500000000000114,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2022-03-15"
+    },
+    {
+      "roll_date": "2022-06-07",
+      "old_sym": "SRAH22",
+      "new_sym": "SRAM22",
+      "gap": -1.0725000000000051,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2022-06-14"
+    },
+    {
+      "roll_date": "2022-09-13",
+      "old_sym": "SRAM22",
+      "new_sym": "SRAU22",
+      "gap": -1.522500000000008,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2022-09-20"
+    },
+    {
+      "roll_date": "2022-12-13",
+      "old_sym": "SRAU22",
+      "new_sym": "SRAZ22",
+      "gap": -1.0324999999999989,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2022-12-20"
+    },
+    {
+      "roll_date": "2023-03-07",
+      "old_sym": "SRAZ22",
+      "new_sym": "SRAH23",
+      "gap": -0.6875,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2023-03-14"
+    },
+    {
+      "roll_date": "2023-06-13",
+      "old_sym": "SRAH23",
+      "new_sym": "SRAM23",
+      "gap": -0.27249999999999375,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2023-06-20"
+    },
+    {
+      "roll_date": "2023-09-12",
+      "old_sym": "SRAM23",
+      "new_sym": "SRAU23",
+      "gap": -0.18000000000000682,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2023-09-19"
+    },
+    {
+      "roll_date": "2023-12-12",
+      "old_sym": "SRAU23",
+      "new_sym": "SRAZ23",
+      "gap": -0.03499999999999659,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2023-12-19"
+    },
+    {
+      "roll_date": "2024-03-12",
+      "old_sym": "SRAZ23",
+      "new_sym": "SRAH24",
+      "gap": 0.030000000000001137,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2024-03-19"
+    },
+    {
+      "roll_date": "2024-06-11",
+      "old_sym": "SRAH24",
+      "new_sym": "SRAM24",
+      "gap": 0.00750000000000739,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2024-06-18"
+    },
+    {
+      "roll_date": "2024-09-10",
+      "old_sym": "SRAM24",
+      "new_sym": "SRAU24",
+      "gap": 0.47750000000000625,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2024-09-17"
+    },
+    {
+      "roll_date": "2024-12-10",
+      "old_sym": "SRAU24",
+      "new_sym": "SRAZ24",
+      "gap": 0.39000000000000057,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2024-12-17"
+    },
+    {
+      "roll_date": "2025-03-11",
+      "old_sym": "SRAZ24",
+      "new_sym": "SRAH25",
+      "gap": 0.07750000000000057,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2025-03-18"
+    },
+    {
+      "roll_date": "2025-06-10",
+      "old_sym": "SRAH25",
+      "new_sym": "SRAM25",
+      "gap": 0.017499999999998295,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2025-06-17"
+    },
+    {
+      "roll_date": "2025-09-09",
+      "old_sym": "SRAM25",
+      "new_sym": "SRAU25",
+      "gap": 0.34250000000000114,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2025-09-16"
+    },
+    {
+      "roll_date": "2025-12-09",
+      "old_sym": "SRAU25",
+      "new_sym": "SRAZ25",
+      "gap": 0.35250000000000625,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2025-12-16"
+    },
+    {
+      "roll_date": "2026-03-10",
+      "old_sym": "SRAZ25",
+      "new_sym": "SRAM26",
+      "gap": 0.12749999999999773,
+      "gap_method": "calendar",
+      "ltd_canonical_old": "2026-03-17"
+    }
+  ],
+  "gap_stats_bp": {
+    "n": 31,
+    "mean_bp": -10.024193548387101,
+    "std_bp": 44.162595166361896,
+    "min_bp": -152.2500000000008,
+    "max_bp": 47.750000000000625,
+    "abs_median_bp": 12.749999999999773
+  },
+  "missing_contracts_in_chain": [
+    "SRAH26",
+    "SRAH18"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "n_rows": 1586,
+  "n_tickers_attempted": 13,
+  "n_tickers_built": 13,
+  "axes_used": [
+    "B0_consensus"
+  ],
+  "halflife_days": 730,
+  "min_releases_per_ticker": 8,
+  "n_becoming_more_important": 0,
+  "skipped_tickers": {}
+}

@@ -1,0 +1,17 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "modules_built": {
+    "a6_ou": 61,
+    "a4m_tsm": 12,
+    "a1c_carry": 61,
+    "a12d_event_drift": 52,
+    "a9_regime_transitions": 682
+  },
+  "modules_stubbed": [
+    "a2p_pack_bundle",
+    "a6s_stl",
+    "a7c_cycle_labeler"
+  ],
+  "stub_reason": "deferred per plan \u00a715 / \u00a716.5 \u2014 see HANDOFF.md \u00a75P"
+}

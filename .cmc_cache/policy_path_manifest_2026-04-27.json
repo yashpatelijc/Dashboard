@@ -1,0 +1,20 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "current_rate_bp": 362.5,
+  "n_meetings": 14,
+  "first_meeting_date": "2026-04-29",
+  "last_meeting_date": "2027-12-15",
+  "terminal_rate_bp": 352.55386302943276,
+  "floor_rate_bp": 352.55386302943276,
+  "cycle_label": "NEUTRAL",
+  "fit_rss": 0.002290003773034368,
+  "optimizer_success": true,
+  "lattice_bp": [
+    -50.0,
+    -25.0,
+    0.0,
+    25.0,
+    50.0
+  ]
+}

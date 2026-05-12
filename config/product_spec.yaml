@@ -1,0 +1,124 @@
+# Per-product specification (Phase 1).
+#
+# Single source of truth for product-specific conventions used by the analytics
+# pipeline. SRA only for this build; ER / SON / FF rows are stub-listed but
+# disabled (cross-product is permanent OOS per plan §15 / D1=A2).
+#
+# Validated by lib/product_spec.py:load_product_spec() at import time.
+
+products:
+
+  # =========================================================================
+  # CME 3-Month SOFR Futures (SR3) — primary product
+  # =========================================================================
+  SRA:
+    enabled: true
+    description: "CME 3-Month SOFR Futures"
+    underlying_rate: "SOFR"
+    listing_exchange: "CME"
+
+    # Contract sizing
+    tick_size: 0.005           # 0.5 bp on price; 0.25 bp on rate (1bp = 2.0 in price)
+    tick_value_usd: 12.50      # per tick per contract (SR3 spec)
+    dv01_per_lot_usd: 25.0     # $25 per bp move per contract
+    contract_multiplier_usd: 2500.0   # full-size SR3
+    bp_multiplier: 100.0       # outright price → bp scale (1.00 = 100 bp)
+
+    # Calendar
+    quarterly_month_codes: ["H", "M", "U", "Z"]   # Mar, Jun, Sep, Dec
+    serial_month_codes: ["F", "G", "J", "K", "N", "Q", "V", "X"]
+    last_trade_rule: "third_wednesday_minus_one"  # day before 3rd Wed of expiry_month + 3
+    settlement_method: "cash"
+    listing_horizon_quarters: 39  # CME lists 39 quarterlies forward
+
+    # Reference rate convention
+    naming_convention: "reference_quarter_start"
+    # SR3: contract is named for the START of the reference quarter. SRAM26
+    # references the Jun-Sep 2026 quarter, last-trades day before the 3rd
+    # Wed of Sep 2026.
+
+    # Data depth available on disk
+    earliest_listing: "2018-05-07"
+    earliest_per_contract_bar: "2019-03-21"  # observed; some contracts list later
+    deepest_quarterlies_liquid: "2019-Q1"    # M48/M60 nodes thinly traded earlier
+
+    # CMC node configuration
+    cmc_outright_nodes: [0, 3, 6, 9, 12, 18, 24, 36, 48, 60]  # months
+    cmc_spread_nodes: [[0,3], [3,6], [6,9], [9,12], [0,6], [0,12], [6,12], [12,24]]
+    cmc_fly_nodes:    [[0,3,6], [3,6,9], [6,9,12], [0,6,12]]
+
+    # Methodology
+    roll_offset_bd: 5
+    volume_guard_sessions: 3
+    interpolation: "linear"  # Phase 2: PCHIP path built (lib/cmc.py:_build_outright_cmc_table_pchip)
+                              # but kept opt-in until front-extrapolation + roll-boundary
+                              # regressions resolved. Pass interpolation="pchip" explicitly
+                              # to use the new path; default stays linear for production stability.
+    adjustment: "backward_panama"
+    libor_cutover_date: "2023-08-01"  # exclude pre-cutover data from analytics pools
+
+    # Trading calendar
+    trading_calendar: "us_futures"   # NYSE+CME holidays
+    timezone: "America/New_York"
+
+  # =========================================================================
+  # ER (3M Euribor) — disabled stub for future cross-product extension
+  # =========================================================================
+  ER:
+    enabled: false   # cross-product permanent OOS per plan §15
+    description: "ICE 3-Month Euribor Futures"
+    underlying_rate: "EURIBOR3M"
+    listing_exchange: "ICE_EU"
+    tick_size: 0.005
+    tick_value_usd: null     # EUR denominated; convert via FX
+    tick_value_eur: 12.50
+    dv01_per_lot_eur: 25.0
+    bp_multiplier: 100.0
+    quarterly_month_codes: ["H", "M", "U", "Z"]
+    last_trade_rule: "two_days_before_third_wed"
+    settlement_method: "cash"
+    earliest_listing: "1989-01-01"
+    naming_convention: "reference_quarter_start"
+    libor_cutover_date: null   # Euribor not affected by SOFR transition
+    trading_calendar: "target2_lse"
+
+  # =========================================================================
+  # SON (3M SONIA) — disabled stub
+  # =========================================================================
+  SON:
+    enabled: false
+    description: "ICE 3-Month SONIA Index Futures"
+    underlying_rate: "SONIA3M"
+    listing_exchange: "ICE_EU"
+    tick_size: 0.005
+    tick_value_gbp: 12.50
+    dv01_per_lot_gbp: 25.0
+    bp_multiplier: 100.0
+    quarterly_month_codes: ["H", "M", "U", "Z"]
+    last_trade_rule: "third_wed_of_expiry_month"
+    settlement_method: "cash"
+    earliest_listing: "2018-04-30"
+    naming_convention: "reference_quarter_start"
+    libor_cutover_date: null
+    trading_calendar: "lse"
+
+  # =========================================================================
+  # FF (30-Day Fed Funds) — disabled stub
+  # =========================================================================
+  FF:
+    enabled: false
+    description: "CBOT 30-Day Fed Funds Futures (ZQ)"
+    underlying_rate: "EFFR"
+    listing_exchange: "CBOT"
+    tick_size: 0.0025
+    tick_value_usd: 10.42
+    dv01_per_lot_usd: 41.67
+    bp_multiplier: 100.0
+    quarterly_month_codes: []   # FF lists serial months for each calendar month
+    serial_month_codes: ["F", "G", "H", "J", "K", "M", "N", "Q", "U", "V", "X", "Z"]
+    last_trade_rule: "last_business_day_of_month"
+    settlement_method: "cash"
+    earliest_listing: "1988-10-03"
+    naming_convention: "reference_month"
+    libor_cutover_date: null
+    trading_calendar: "us_futures"

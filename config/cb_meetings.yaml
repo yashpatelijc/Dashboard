@@ -1,0 +1,350 @@
+# Central-bank meeting calendar (Phase 1).
+#
+# FOMC meetings (past + future ≥2y) with derivable realized outcomes.
+# Past meeting dates are confirmed; realized outcome / magnitude is computed
+# at runtime from FDTRMID_Index step changes around the meeting date (when
+# rates_drivers/FDTRMID_Index.parquet is available).
+#
+# Future meeting dates are sourced from the Federal Reserve's published
+# calendar (federalreserve.gov/monetarypolicy/fomccalendars.htm). Dates
+# locked through 2027.
+#
+# This file is the SoT for FOMC awareness in:
+#   - A4 Heitfield-Park (per-meeting probability vectors)
+#   - A11-event Tier 1 (FOMC + statement)
+#   - §3.7 FOMC blackouts on every plotly chart
+#   - §3.7 Fed-dots-vs-OIS chart anchor dates
+#
+# Schema:
+#   central_bank: FED  | ECB | BOE | BOJ | RBA | RBNZ | BOC | SNB
+#   date: meeting date (YYYY-MM-DD)
+#   has_sep: true if Summary of Economic Projections is published this meeting
+#   statement_only: false → press conference; true → release-only meeting
+#   blackout_start / blackout_end: pre/post communication blackout window
+#     (FOMC blackout = "second Saturday before meeting" through "Thursday after")
+
+fed:
+  blackout_rule:
+    pre_days: 12   # second Saturday before meeting
+    post_days: 1   # Thursday after meeting
+
+  meetings:
+    # 2018 (SR3 launched May 2018)
+    - {date: 2018-06-13, has_sep: true,  statement_only: false}
+    - {date: 2018-08-01, has_sep: false, statement_only: true}
+    - {date: 2018-09-26, has_sep: true,  statement_only: false}
+    - {date: 2018-11-08, has_sep: false, statement_only: true}
+    - {date: 2018-12-19, has_sep: true,  statement_only: false}
+
+    # 2019
+    - {date: 2019-01-30, has_sep: false, statement_only: true}
+    - {date: 2019-03-20, has_sep: true,  statement_only: false}
+    - {date: 2019-05-01, has_sep: false, statement_only: true}
+    - {date: 2019-06-19, has_sep: true,  statement_only: false}
+    - {date: 2019-07-31, has_sep: false, statement_only: true}
+    - {date: 2019-09-18, has_sep: true,  statement_only: false}
+    - {date: 2019-10-30, has_sep: false, statement_only: true}
+    - {date: 2019-12-11, has_sep: true,  statement_only: false}
+
+    # 2020 (COVID emergency cuts March)
+    - {date: 2020-01-29, has_sep: false, statement_only: true}
+    - {date: 2020-03-03, has_sep: false, statement_only: true, emergency: true}  # 50bp cut
+    - {date: 2020-03-15, has_sep: false, statement_only: true, emergency: true}  # 100bp cut + QE
+    - {date: 2020-04-29, has_sep: false, statement_only: true}
+    - {date: 2020-06-10, has_sep: true,  statement_only: false}
+    - {date: 2020-07-29, has_sep: false, statement_only: true}
+    - {date: 2020-09-16, has_sep: true,  statement_only: false}
+    - {date: 2020-11-05, has_sep: false, statement_only: true}
+    - {date: 2020-12-16, has_sep: true,  statement_only: false}
+
+    # 2021
+    - {date: 2021-01-27, has_sep: false, statement_only: true}
+    - {date: 2021-03-17, has_sep: true,  statement_only: false}
+    - {date: 2021-04-28, has_sep: false, statement_only: true}
+    - {date: 2021-06-16, has_sep: true,  statement_only: false}
+    - {date: 2021-07-28, has_sep: false, statement_only: true}
+    - {date: 2021-09-22, has_sep: true,  statement_only: false}
+    - {date: 2021-11-03, has_sep: false, statement_only: true}
+    - {date: 2021-12-15, has_sep: true,  statement_only: false}
+
+    # 2022 (hiking cycle begins)
+    - {date: 2022-01-26, has_sep: false, statement_only: true}
+    - {date: 2022-03-16, has_sep: true,  statement_only: false}  # +25
+    - {date: 2022-05-04, has_sep: false, statement_only: true}   # +50
+    - {date: 2022-06-15, has_sep: true,  statement_only: false}  # +75
+    - {date: 2022-07-27, has_sep: false, statement_only: true}   # +75
+    - {date: 2022-09-21, has_sep: true,  statement_only: false}  # +75
+    - {date: 2022-11-02, has_sep: false, statement_only: true}   # +75
+    - {date: 2022-12-14, has_sep: true,  statement_only: false}  # +50
+
+    # 2023
+    - {date: 2023-02-01, has_sep: false, statement_only: true}   # +25
+    - {date: 2023-03-22, has_sep: true,  statement_only: false}  # +25
+    - {date: 2023-05-03, has_sep: false, statement_only: true}   # +25
+    - {date: 2023-06-14, has_sep: true,  statement_only: false}  # hold
+    - {date: 2023-07-26, has_sep: false, statement_only: true}   # +25
+    - {date: 2023-09-20, has_sep: true,  statement_only: false}  # hold
+    - {date: 2023-11-01, has_sep: false, statement_only: true}   # hold
+    - {date: 2023-12-13, has_sep: true,  statement_only: false}  # hold
+
+    # 2024
+    - {date: 2024-01-31, has_sep: false, statement_only: true}
+    - {date: 2024-03-20, has_sep: true,  statement_only: false}
+    - {date: 2024-05-01, has_sep: false, statement_only: true}
+    - {date: 2024-06-12, has_sep: true,  statement_only: false}
+    - {date: 2024-07-31, has_sep: false, statement_only: true}
+    - {date: 2024-09-18, has_sep: true,  statement_only: false}  # -50 begin cuts
+    - {date: 2024-11-07, has_sep: false, statement_only: true}   # -25
+    - {date: 2024-12-18, has_sep: true,  statement_only: false}  # -25
+
+    # 2025
+    - {date: 2025-01-29, has_sep: false, statement_only: true}
+    - {date: 2025-03-19, has_sep: true,  statement_only: false}
+    - {date: 2025-05-07, has_sep: false, statement_only: true}
+    - {date: 2025-06-18, has_sep: true,  statement_only: false}
+    - {date: 2025-07-30, has_sep: false, statement_only: true}
+    - {date: 2025-09-17, has_sep: true,  statement_only: false}
+    - {date: 2025-10-29, has_sep: false, statement_only: true}
+    - {date: 2025-12-10, has_sep: true,  statement_only: false}
+
+    # 2026
+    - {date: 2026-01-28, has_sep: false, statement_only: true}
+    - {date: 2026-03-18, has_sep: true,  statement_only: false}
+    - {date: 2026-04-29, has_sep: false, statement_only: true}
+    - {date: 2026-06-17, has_sep: true,  statement_only: false}
+    - {date: 2026-07-29, has_sep: false, statement_only: true}
+    - {date: 2026-09-16, has_sep: true,  statement_only: false}
+    - {date: 2026-10-28, has_sep: false, statement_only: true}
+    - {date: 2026-12-16, has_sep: true,  statement_only: false}
+
+    # 2027 (placeholder dates per typical cadence; confirm when Fed publishes)
+    - {date: 2027-01-27, has_sep: false, statement_only: true}
+    - {date: 2027-03-17, has_sep: true,  statement_only: false}
+    - {date: 2027-04-28, has_sep: false, statement_only: true}
+    - {date: 2027-06-16, has_sep: true,  statement_only: false}
+    - {date: 2027-07-28, has_sep: false, statement_only: true}
+    - {date: 2027-09-22, has_sep: true,  statement_only: false}
+    - {date: 2027-11-03, has_sep: false, statement_only: true}
+    - {date: 2027-12-15, has_sep: true,  statement_only: false}
+
+
+# =============================================================================
+# ECB Governing Council monetary policy meetings (Eurozone -- ER, FER, FSR via EUR)
+# =============================================================================
+ecb:
+  blackout_rule:
+    pre_days: 7
+    post_days: 0
+
+  meetings:
+    # 2023
+    - {date: 2023-02-02, has_sep: false, statement_only: false}
+    - {date: 2023-03-16, has_sep: true,  statement_only: false}
+    - {date: 2023-05-04, has_sep: false, statement_only: false}
+    - {date: 2023-06-15, has_sep: true,  statement_only: false}
+    - {date: 2023-07-27, has_sep: false, statement_only: false}
+    - {date: 2023-09-14, has_sep: true,  statement_only: false}
+    - {date: 2023-10-26, has_sep: false, statement_only: false}
+    - {date: 2023-12-14, has_sep: true,  statement_only: false}
+    # 2024
+    - {date: 2024-01-25, has_sep: false, statement_only: false}
+    - {date: 2024-03-07, has_sep: true,  statement_only: false}
+    - {date: 2024-04-11, has_sep: false, statement_only: false}
+    - {date: 2024-06-06, has_sep: true,  statement_only: false}
+    - {date: 2024-07-18, has_sep: false, statement_only: false}
+    - {date: 2024-09-12, has_sep: true,  statement_only: false}
+    - {date: 2024-10-17, has_sep: false, statement_only: false}
+    - {date: 2024-12-12, has_sep: true,  statement_only: false}
+    # 2025
+    - {date: 2025-01-30, has_sep: false, statement_only: false}
+    - {date: 2025-03-06, has_sep: true,  statement_only: false}
+    - {date: 2025-04-17, has_sep: false, statement_only: false}
+    - {date: 2025-06-05, has_sep: true,  statement_only: false}
+    - {date: 2025-07-24, has_sep: false, statement_only: false}
+    - {date: 2025-09-11, has_sep: true,  statement_only: false}
+    - {date: 2025-10-30, has_sep: false, statement_only: false}
+    - {date: 2025-12-18, has_sep: true,  statement_only: false}
+    # 2026
+    - {date: 2026-01-22, has_sep: false, statement_only: false}
+    - {date: 2026-03-05, has_sep: true,  statement_only: false}
+    - {date: 2026-04-30, has_sep: false, statement_only: false}
+    - {date: 2026-06-04, has_sep: true,  statement_only: false}
+    - {date: 2026-07-23, has_sep: false, statement_only: false}
+    - {date: 2026-09-17, has_sep: true,  statement_only: false}
+    - {date: 2026-10-29, has_sep: false, statement_only: false}
+    - {date: 2026-12-17, has_sep: true,  statement_only: false}
+
+
+# =============================================================================
+# Bank of England MPC monetary policy meetings (UK -- SON)
+# =============================================================================
+boe:
+  blackout_rule:
+    pre_days: 7
+    post_days: 0
+
+  meetings:
+    # 2023
+    - {date: 2023-02-02, has_sep: true,  statement_only: false}
+    - {date: 2023-03-23, has_sep: false, statement_only: false}
+    - {date: 2023-05-11, has_sep: true,  statement_only: false}
+    - {date: 2023-06-22, has_sep: false, statement_only: false}
+    - {date: 2023-08-03, has_sep: true,  statement_only: false}
+    - {date: 2023-09-21, has_sep: false, statement_only: false}
+    - {date: 2023-11-02, has_sep: true,  statement_only: false}
+    - {date: 2023-12-14, has_sep: false, statement_only: false}
+    # 2024
+    - {date: 2024-02-01, has_sep: true,  statement_only: false}
+    - {date: 2024-03-21, has_sep: false, statement_only: false}
+    - {date: 2024-05-09, has_sep: true,  statement_only: false}
+    - {date: 2024-06-20, has_sep: false, statement_only: false}
+    - {date: 2024-08-01, has_sep: true,  statement_only: false}
+    - {date: 2024-09-19, has_sep: false, statement_only: false}
+    - {date: 2024-11-07, has_sep: true,  statement_only: false}
+    - {date: 2024-12-19, has_sep: false, statement_only: false}
+    # 2025
+    - {date: 2025-02-06, has_sep: true,  statement_only: false}
+    - {date: 2025-03-20, has_sep: false, statement_only: false}
+    - {date: 2025-05-08, has_sep: true,  statement_only: false}
+    - {date: 2025-06-19, has_sep: false, statement_only: false}
+    - {date: 2025-08-07, has_sep: true,  statement_only: false}
+    - {date: 2025-09-18, has_sep: false, statement_only: false}
+    - {date: 2025-11-06, has_sep: true,  statement_only: false}
+    - {date: 2025-12-18, has_sep: false, statement_only: false}
+    # 2026
+    - {date: 2026-02-05, has_sep: true,  statement_only: false}
+    - {date: 2026-03-19, has_sep: false, statement_only: false}
+    - {date: 2026-05-07, has_sep: true,  statement_only: false}
+    - {date: 2026-06-18, has_sep: false, statement_only: false}
+    - {date: 2026-08-06, has_sep: true,  statement_only: false}
+    - {date: 2026-09-17, has_sep: false, statement_only: false}
+    - {date: 2026-11-05, has_sep: true,  statement_only: false}
+    - {date: 2026-12-17, has_sep: false, statement_only: false}
+
+
+# =============================================================================
+# Reserve Bank of Australia (RBA) cash-rate meetings (Australia -- YBA)
+# =============================================================================
+rba:
+  blackout_rule:
+    pre_days: 5
+    post_days: 0
+
+  meetings:
+    # 2023 (monthly cadence, last year of old schedule)
+    - {date: 2023-02-07, has_sep: false, statement_only: false}
+    - {date: 2023-03-07, has_sep: false, statement_only: false}
+    - {date: 2023-04-04, has_sep: false, statement_only: false}
+    - {date: 2023-05-02, has_sep: false, statement_only: false}
+    - {date: 2023-06-06, has_sep: false, statement_only: false}
+    - {date: 2023-07-04, has_sep: false, statement_only: false}
+    - {date: 2023-08-01, has_sep: false, statement_only: false}
+    - {date: 2023-09-05, has_sep: false, statement_only: false}
+    - {date: 2023-10-03, has_sep: false, statement_only: false}
+    - {date: 2023-11-07, has_sep: false, statement_only: false}
+    - {date: 2023-12-05, has_sep: false, statement_only: false}
+    # 2024 (new 8-meeting cadence)
+    - {date: 2024-02-06, has_sep: true,  statement_only: false}
+    - {date: 2024-03-19, has_sep: false, statement_only: false}
+    - {date: 2024-05-07, has_sep: true,  statement_only: false}
+    - {date: 2024-06-18, has_sep: false, statement_only: false}
+    - {date: 2024-08-06, has_sep: true,  statement_only: false}
+    - {date: 2024-09-24, has_sep: false, statement_only: false}
+    - {date: 2024-11-05, has_sep: true,  statement_only: false}
+    - {date: 2024-12-10, has_sep: false, statement_only: false}
+    # 2025
+    - {date: 2025-02-18, has_sep: true,  statement_only: false}
+    - {date: 2025-04-01, has_sep: false, statement_only: false}
+    - {date: 2025-05-20, has_sep: true,  statement_only: false}
+    - {date: 2025-07-08, has_sep: false, statement_only: false}
+    - {date: 2025-08-19, has_sep: true,  statement_only: false}
+    - {date: 2025-09-30, has_sep: false, statement_only: false}
+    - {date: 2025-11-04, has_sep: true,  statement_only: false}
+    - {date: 2025-12-09, has_sep: false, statement_only: false}
+    # 2026
+    - {date: 2026-02-17, has_sep: true,  statement_only: false}
+    - {date: 2026-03-31, has_sep: false, statement_only: false}
+    - {date: 2026-05-19, has_sep: true,  statement_only: false}
+    - {date: 2026-07-07, has_sep: false, statement_only: false}
+    - {date: 2026-08-18, has_sep: true,  statement_only: false}
+    - {date: 2026-09-29, has_sep: false, statement_only: false}
+    - {date: 2026-11-03, has_sep: true,  statement_only: false}
+    - {date: 2026-12-08, has_sep: false, statement_only: false}
+
+
+# =============================================================================
+# Bank of Canada (BoC) policy-rate meetings (Canada -- CORRA)
+# =============================================================================
+boc:
+  blackout_rule:
+    pre_days: 7
+    post_days: 0
+
+  meetings:
+    # 2023
+    - {date: 2023-01-25, has_sep: false, statement_only: false}
+    - {date: 2023-03-08, has_sep: false, statement_only: false}
+    - {date: 2023-04-12, has_sep: true,  statement_only: false}
+    - {date: 2023-06-07, has_sep: false, statement_only: false}
+    - {date: 2023-07-12, has_sep: true,  statement_only: false}
+    - {date: 2023-09-06, has_sep: false, statement_only: false}
+    - {date: 2023-10-25, has_sep: true,  statement_only: false}
+    - {date: 2023-12-06, has_sep: false, statement_only: false}
+    # 2024
+    - {date: 2024-01-24, has_sep: false, statement_only: false}
+    - {date: 2024-03-06, has_sep: false, statement_only: false}
+    - {date: 2024-04-10, has_sep: true,  statement_only: false}
+    - {date: 2024-06-05, has_sep: false, statement_only: false}
+    - {date: 2024-07-24, has_sep: true,  statement_only: false}
+    - {date: 2024-09-04, has_sep: false, statement_only: false}
+    - {date: 2024-10-23, has_sep: true,  statement_only: false}
+    - {date: 2024-12-11, has_sep: false, statement_only: false}
+    # 2025
+    - {date: 2025-01-29, has_sep: false, statement_only: false}
+    - {date: 2025-03-12, has_sep: false, statement_only: false}
+    - {date: 2025-04-16, has_sep: true,  statement_only: false}
+    - {date: 2025-06-04, has_sep: false, statement_only: false}
+    - {date: 2025-07-30, has_sep: true,  statement_only: false}
+    - {date: 2025-09-17, has_sep: false, statement_only: false}
+    - {date: 2025-10-29, has_sep: true,  statement_only: false}
+    - {date: 2025-12-10, has_sep: false, statement_only: false}
+    # 2026
+    - {date: 2026-01-28, has_sep: false, statement_only: false}
+    - {date: 2026-03-11, has_sep: false, statement_only: false}
+    - {date: 2026-04-15, has_sep: true,  statement_only: false}
+    - {date: 2026-06-03, has_sep: false, statement_only: false}
+    - {date: 2026-07-29, has_sep: true,  statement_only: false}
+    - {date: 2026-09-16, has_sep: false, statement_only: false}
+    - {date: 2026-10-28, has_sep: true,  statement_only: false}
+    - {date: 2026-12-09, has_sep: false, statement_only: false}
+
+
+# =============================================================================
+# Swiss National Bank (SNB) quarterly monetary policy assessments (Switzerland -- FSR/SARON)
+# =============================================================================
+snb:
+  blackout_rule:
+    pre_days: 7
+    post_days: 0
+
+  meetings:
+    # 2023
+    - {date: 2023-03-23, has_sep: true,  statement_only: false}
+    - {date: 2023-06-22, has_sep: true,  statement_only: false}
+    - {date: 2023-09-21, has_sep: true,  statement_only: false}
+    - {date: 2023-12-14, has_sep: true,  statement_only: false}
+    # 2024
+    - {date: 2024-03-21, has_sep: true,  statement_only: false}
+    - {date: 2024-06-20, has_sep: true,  statement_only: false}
+    - {date: 2024-09-26, has_sep: true,  statement_only: false}
+    - {date: 2024-12-12, has_sep: true,  statement_only: false}
+    # 2025
+    - {date: 2025-03-20, has_sep: true,  statement_only: false}
+    - {date: 2025-06-19, has_sep: true,  statement_only: false}
+    - {date: 2025-09-25, has_sep: true,  statement_only: false}
+    - {date: 2025-12-11, has_sep: true,  statement_only: false}
+    # 2026
+    - {date: 2026-03-19, has_sep: true,  statement_only: false}
+    - {date: 2026-06-18, has_sep: true,  statement_only: false}
+    - {date: 2026-09-24, has_sep: true,  statement_only: false}
+    - {date: 2026-12-10, has_sep: true,  statement_only: false}

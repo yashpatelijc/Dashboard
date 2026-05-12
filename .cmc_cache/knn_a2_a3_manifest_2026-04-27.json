@@ -1,0 +1,11 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "n_target_nodes": 8,
+  "K": 30,
+  "exclusion_days": 60,
+  "halflife_days": 250,
+  "structure_window_days": 90,
+  "all_emissions_low_sample": true,
+  "low_sample_reason": "SRA-only per plan \u00a715 A2; cross-product OOS"
+}

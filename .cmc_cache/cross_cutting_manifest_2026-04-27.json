@@ -1,0 +1,15 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "n_cointegration_pairs": 10,
+  "n_cointegrated_flagged": 3,
+  "risk_regime_label": "RISK_ON",
+  "n_bauer_meetings": 9,
+  "removed_per_plan_15": [
+    "CFTC_COT_heatmap",
+    "Hull_White_convexity"
+  ],
+  "deferred_per_D3": [
+    "option_implied_skewness_term"
+  ]
+}

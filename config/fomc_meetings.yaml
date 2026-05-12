@@ -1,0 +1,40 @@
+# FOMC meeting schedule — hand-seeded from federalreserve.gov/monetarypolicy/fomccalendars.htm
+# `decision_date` is the second day (statement release day, typically ~14:00 ET).
+# Use scripts/refresh_fomc.py to refresh from Fed website (best-effort scraper).
+
+last_updated: "2026-05-06"
+source: "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+
+meetings:
+  - {decision_date: "2024-01-31", press_conf: true,  sep: false}
+  - {decision_date: "2024-03-20", press_conf: true,  sep: true }
+  - {decision_date: "2024-05-01", press_conf: true,  sep: false}
+  - {decision_date: "2024-06-12", press_conf: true,  sep: true }
+  - {decision_date: "2024-07-31", press_conf: true,  sep: false}
+  - {decision_date: "2024-09-18", press_conf: true,  sep: true }
+  - {decision_date: "2024-11-07", press_conf: true,  sep: false}
+  - {decision_date: "2024-12-18", press_conf: true,  sep: true }
+  - {decision_date: "2025-01-29", press_conf: true,  sep: false}
+  - {decision_date: "2025-03-19", press_conf: true,  sep: true }
+  - {decision_date: "2025-05-07", press_conf: true,  sep: false}
+  - {decision_date: "2025-06-18", press_conf: true,  sep: true }
+  - {decision_date: "2025-07-30", press_conf: true,  sep: false}
+  - {decision_date: "2025-09-17", press_conf: true,  sep: true }
+  - {decision_date: "2025-10-29", press_conf: true,  sep: false}
+  - {decision_date: "2025-12-10", press_conf: true,  sep: true }
+  - {decision_date: "2026-01-28", press_conf: true,  sep: false}
+  - {decision_date: "2026-03-18", press_conf: true,  sep: true }
+  - {decision_date: "2026-04-29", press_conf: true,  sep: false}
+  - {decision_date: "2026-06-17", press_conf: true,  sep: true }
+  - {decision_date: "2026-07-29", press_conf: true,  sep: false}
+  - {decision_date: "2026-09-16", press_conf: true,  sep: true }
+  - {decision_date: "2026-10-28", press_conf: true,  sep: false}
+  - {decision_date: "2026-12-09", press_conf: true,  sep: true }
+  - {decision_date: "2027-01-27", press_conf: true,  sep: false}
+  - {decision_date: "2027-03-17", press_conf: true,  sep: true }
+  - {decision_date: "2027-04-28", press_conf: true,  sep: false}
+  - {decision_date: "2027-06-16", press_conf: true,  sep: true }
+  - {decision_date: "2027-07-28", press_conf: true,  sep: false}
+  - {decision_date: "2027-09-15", press_conf: true,  sep: true }
+  - {decision_date: "2027-10-27", press_conf: true,  sep: false}
+  - {decision_date: "2027-12-08", press_conf: true,  sep: true }

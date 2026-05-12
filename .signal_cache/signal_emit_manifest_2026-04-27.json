@@ -1,0 +1,41 @@
+{
+  "builder_version": "1.0.0",
+  "asof_date": "2026-04-27",
+  "n_emissions": 12,
+  "n_by_family": {
+    "EVENT": 10,
+    "POLICY": 1,
+    "REGIME": 1
+  },
+  "n_clean": 2,
+  "n_low_sample": 10,
+  "n_transition": 0,
+  "n_conflict": 0,
+  "schema_version": "1.0.0",
+  "schema_columns": [
+    "detector_id",
+    "detector_family",
+    "scope",
+    "cmc_node",
+    "signal_type",
+    "direction",
+    "raw_value",
+    "percentile_rank",
+    "confidence_stoplight",
+    "eff_n",
+    "regime_id",
+    "regime_stability",
+    "transition_flag",
+    "conflict_flag",
+    "gate_quality",
+    "expected_horizon_days",
+    "rationale",
+    "sources",
+    "tags",
+    "asof_date",
+    "emit_id",
+    "created_at",
+    "builder_version",
+    "version"
+  ]
+}
